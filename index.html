@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>أوقات الصلاة مع قائمة تنقل للمدن</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: sans-serif;
+      direction: rtl;
+    }
+    h1 {
+      text-align: center;
+    }
+    /* شريط التنقل في الأعلى */
+    nav {
+      position: sticky; /* لجعل القائمة تبقى ثابتة في أعلى الصفحة عند التمرير */
+      top: 0;
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #ccc;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex; /* لعرض العناصر أفقياً */
+      gap: 1rem;     /* مسافة بين الروابط */
+      justify-content: center; /* تمركز القائمة أفقياً */
+    }
+    nav li {
+      margin: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 30px auto;
+      width: 280px; /* يمكن ضبطه حسب الحاجة */
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 90px; /* عرض العمود الأول */
+    }
+	html {
+	  scroll-padding-top: 210px; /* اختر قيمة مناسبة لطول الشريط */
+      scroll-behavior: smooth;  /* اختياري لجعل التمرير سلساً */
+	}
+  </style>
+</head>
+<body>
+
+<h1>أوقات الصلاة (مثال توضيحي)</h1>
+
+<!-- قائمة تنقل أفقية في الأعلى، تربط كل عنصر باسم المدينة -->
+<nav>
+  <ul>
+    <li><a href="#stuttgart">شتوتغارت (Stuttgart)</a></li>
+    <li><a href="#dortmund">دورتموند (Dortmund)</a></li>
+    <li><a href="#bremen">بريمن (Bremen)</a></li>
+    <li><a href="#munich">ميونخ (München)</a></li>
+    <li><a href="#friedrichshafen">فريدريشهافن (Friedrichshafen)</a></li>
+    <li><a href="#duesseldorf">دوسلدورف (Düsseldorf)</a></li>
+    <li><a href="#essen">إيسن (Essen)</a></li>
+    <li><a href="#leipzig">لايبزيغ (Leipzig)</a></li>
+    <li><a href="#freiburg">فرايبورغ (Freiburg)</a></li>
+  </ul>
+  <br>
+  <ul>  
+    <li><a href="#berlin">برلين (Berlin)</a></li>
+    <li><a href="#nuremberg">نورمبرغ (Nuremberg)</a></li>
+    <li><a href="#karlsruhe">كارلسروه (Karlsruhe)</a></li>
+    <li><a href="#mannheim">مانهايم (Mannheim)</a></li>
+    <li><a href="#frankfurt">فرانكفورت (Frankfurt)</a></li>
+    <li><a href="#kiel">كيل (Kiel)</a></li>
+    <li><a href="#hamburg">هامبورغ (Hamburg)</a></li>
+    <li><a href="#koblenz">كوبلنتس (Koblenz)</a></li>
+  </ul>
+  <br>
+  <ul>
+    <li><a href="#wernigerode">فيرنيغروده (Wernigerode)</a></li>
+    <li><a href="#regensburg">ريغنسبورغ (Regensburg)</a></li>
+    <li><a href="#augsburg">أوغسبورغ (Augsburg)</a></li>
+    <li><a href="#erfurt">إرفورت (Erfurt)</a></li>
+    <li><a href="#lindau">لينداو (Lindau)</a></li>
+    <li><a href="#konstanz">كونستانس (Konstanz)</a></li>
+    <li><a href="#tuebingen">توبنغن (Tübingen)</a></li>
+    <li><a href="#rostock">روستوك (Rostock)</a></li>
+    <li><a href="#flensburg">فلنسبورغ (Flensburg)</a></li>
+  </ul>
+</nav>
+
+<!-- 
+  - تم دمج اليوم والتاريخ في خلية واحدة: <td>الاثنين 06/03/2025</td>.
+  - الفجر = الشروق - 1:05
+  - العشاء = المغرب + 1:05
+  - جميع الأوقات أمثلة.
+-->
+
+<!-- المدينة 1: شتوتغارت (Stuttgart) -->
+<h2 id="stuttgart">شتوتغارت (Stuttgart)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:05</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:10</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:40</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:00</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:10</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:15</td>
+  </tr>
+</table>
+
+<!-- المدينة 2: دورتموند (Dortmund) -->
+<h2 id="dortmund">دورتموند (Dortmund)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:07</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:12</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:42</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:02</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:12</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:17</td>
+  </tr>
+</table>
+
+<!-- المدينة 3: بريمن (Bremen) -->
+<h2 id="bremen">بريمن (Bremen)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:09</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:14</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:44</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:04</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:14</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:19</td>
+  </tr>
+</table>
+
+<!-- المدينة 4: ميونخ (München) -->
+<h2 id="munich">ميونخ (München)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:11</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:16</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:46</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:06</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:16</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:21</td>
+  </tr>
+</table>
+
+<!-- المدينة 5: فريدريشهافن (Friedrichshafen) -->
+<h2 id="friedrichshafen">فريدريشهافن (Friedrichshafen)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:13</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:18</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:48</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:08</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:18</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:23</td>
+  </tr>
+</table>
+
+<!-- المدينة 6: دوسلدورف (Düsseldorf) -->
+<h2 id="duesseldorf">دوسلدورف (Düsseldorf)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:15</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:20</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:50</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:10</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:20</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:25</td>
+  </tr>
+</table>
+
+<!-- المدينة 7: إيسن (Essen) -->
+<h2 id="essen">إيسن (Essen)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:17</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:22</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:52</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:12</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:22</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:27</td>
+  </tr>
+</table>
+
+<!-- المدينة 8: لايبزيغ (Leipzig) -->
+<h2 id="leipzig">لايبزيغ (Leipzig)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:19</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:24</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:54</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:14</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:24</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:29</td>
+  </tr>
+</table>
+
+<!-- المدينة 9: فرايبورغ (Freiburg) -->
+<h2 id="freiburg">فرايبورغ (Freiburg)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:21</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:26</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:56</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:16</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:26</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:31</td>
+  </tr>
+</table>
+
+<!-- المدينة 10: برلين (Berlin) -->
+<h2 id="berlin">برلين (Berlin)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:23</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:28</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>12:58</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:18</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:28</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:33</td>
+  </tr>
+</table>
+
+<!-- المدينة 11: نورمبرغ (Nuremberg) -->
+<h2 id="nuremberg">نورمبرغ (Nuremberg)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:25</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:30</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:00</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:20</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:30</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:35</td>
+  </tr>
+</table>
+
+<!-- المدينة 12: كارلسروه (Karlsruhe) -->
+<h2 id="karlsruhe">كارلسروه (Karlsruhe)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:27</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:32</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:02</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:22</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:32</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:37</td>
+  </tr>
+</table>
+
+<!-- المدينة 13: مانهايم (Mannheim) -->
+<h2 id="mannheim">مانهايم (Mannheim)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:29</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:34</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:04</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:24</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:34</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:39</td>
+  </tr>
+</table>
+
+<!-- المدينة 14: فرانكفورت (Frankfurt) -->
+<h2 id="frankfurt">فرانكفورت (Frankfurt)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:31</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:36</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:06</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:26</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:36</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:41</td>
+  </tr>
+</table>
+
+<!-- المدينة 15: كيل (Kiel) -->
+<h2 id="kiel">كيل (Kiel)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:33</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:38</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:08</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:28</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:38</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:43</td>
+  </tr>
+</table>
+
+<!-- المدينة 16: هامبورغ (Hamburg) -->
+<h2 id="hamburg">هامبورغ (Hamburg)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:35</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:40</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:10</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:30</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:40</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:45</td>
+  </tr>
+</table>
+
+<!-- المدينة 17: كوبلنتس (Koblenz) -->
+<h2 id="koblenz">كوبلنتس (Koblenz)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:37</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:42</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:12</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:32</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:42</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:47</td>
+  </tr>
+</table>
+
+<!-- المدينة 18: فيرنيغروده (Wernigerode) -->
+<h2 id="wernigerode">فيرنيغروده (Wernigerode)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:39</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:44</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:14</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:34</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:44</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:49</td>
+  </tr>
+</table>
+
+<!-- المدينة 19: ريغنسبورغ (Regensburg) -->
+<h2 id="regensburg">ريغنسبورغ (Regensburg)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:41</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:46</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:16</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:36</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:46</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:51</td>
+  </tr>
+</table>
+
+<!-- المدينة 20: أوغسبورغ (Augsburg) -->
+<h2 id="augsburg">أوغسبورغ (Augsburg)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:43</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:48</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:18</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:38</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:48</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:53</td>
+  </tr>
+</table>
+
+<!-- المدينة 21: إرفورت (Erfurt) -->
+<h2 id="erfurt">إرفورت (Erfurt)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:45</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:50</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:20</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:40</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:50</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:55</td>
+  </tr>
+</table>
+
+<!-- المدينة 22: لينداو (Lindau) -->
+<h2 id="lindau">لينداو (Lindau)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:47</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:52</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:22</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:42</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:52</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:57</td>
+  </tr>
+</table>
+
+<!-- المدينة 23: كونستانس (Konstanz) -->
+<h2 id="konstanz">كونستانس (Konstanz)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:49</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:54</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:24</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:44</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:54</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>19:59</td>
+  </tr>
+</table>
+
+<!-- المدينة 24: توبنغن (Tübingen) -->
+<h2 id="tuebingen">توبنغن (Tübingen)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:51</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:56</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:26</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:46</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:56</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>20:01</td>
+  </tr>
+</table>
+
+<!-- المدينة 25: روستوك (Rostock) -->
+<h2 id="rostock">روستوك (Rostock)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:53</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>06:58</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:28</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:48</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>18:58</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>20:03</td>
+  </tr>
+</table>
+
+<!-- المدينة 26: فلنسبورغ (Flensburg) -->
+<h2 id="flensburg">فلنسبورغ (Flensburg)</h2>
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td>الاثنين 06/03/2025</td>
+  </tr>
+  <tr>
+    <th>الفجر</th>
+    <td>05:55</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td>07:00</td>
+  </tr>
+  <tr>
+    <th>الظهر</th>
+    <td>13:30</td>
+  </tr>
+  <tr>
+    <th>العصر</th>
+    <td>16:50</td>
+  </tr>
+  <tr>
+    <th>المغرب</th>
+    <td>19:00</td>
+  </tr>
+  <tr>
+    <th>العشاء</th>
+    <td>20:05</td>
+  </tr>
+</table>
+
+</body>
+</html>
