@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Ensures the page is responsive on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>توقيت صلاة الفجر والعشاء حسب فتوى مجلس الإفتاء الأوروبي - 2015</title>
+
+  <style>
+    
+
+    body {
+	
+      margin: 20px;
+      font-family: sans-serif;
+      direction: rtl; /* RTL layout for Arabic */
+    }
+    h1 {
+      text-align: center;
+    }
+    .selectors {
+      text-align: center;
+      margin: 20px 0;
+    }
+    select, button {
+      font-size: 1rem;
+      margin: 0 5px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+
+    /* Table layout */
+    table {
+      border-collapse: collapse;
+      margin: 20px auto; /* center horizontally */
+      width: 300px;
+      max-width: 100%; /* so it doesn't overflow on small screens */
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      width: 120px;
+    }
+    .row-separator {
+      border-bottom: 2px solid red; /* example style */
+    }
+    .gr {
+      color: green;
+	  font-weight: bold;
+    }
+
+    .centered {
+      text-align: center;
+    }
+	.cit {
+	  font-size: 0.5rem;
+	}
+    /* Media query for smaller screens */
+    @media (max-width: 600px) {
+      body {
+        margin: 10px;
+      }
+      select, button {
+        font-size: 0.9rem; /* slightly smaller text on small screens */
+      }
+      table {
+        width: 100%; /* use full width on mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>
+توقيت صلاة الفجر والعشاء حسب فتوى مجلس الإفتاء الأوروبي - 2015
+</h1>
+<p class="gr centered">
+  طيلة أيام شهر رمضان المبارك
+</p>
+
+<p class="centered">
+  حسب قاعدة ساعة و5 دقائق - قبل الشروق .. وبعد الغروب
+</p>
+
+ <div id="city-list-container"></div>
+
+
+<div class="selectors">
+  <!-- City selector -->
+  <label for="citySelect">اختر المدينة:</label>
+  <select id="citySelect"></select>
+
+  <br/><br/>
+
+  <!-- Day controls: prev day button, day select, next day button -->
+  <button id="prevDayBtn">اليوم السابق ←</button>
+  <select id="daySelect"></select>
+  <button id="nextDayBtn">→ اليوم التالي</button>
+</div>
+
+<!-- Table to show the chosen city/day times -->
+<table>
+  <tr>
+    <th>اليوم</th>
+    <td id="selectedDayCell">—</td>
+  </tr>
+  <tr>
+    <th>الشروق</th>
+    <td id="sunriseCell">—</td>
+  </tr>
+  <tr class="row-separator">
+  <th>الفجر</th>
+  <td id="fajrCell">—</td>
+</tr>
+<tr>
+  <th>الغروب</th>
+  <td id="sunsetCell">—</td>
+</tr>
+
+  <tr>
+    <th>العشاء</th>
+    <td id="ishaaCell">—</td>
+  </tr>
+</table>
+<script src="cities-data.js"></script>
+  <script>
+    // Now we can access `allCitiesData` from cities-data.js
+    console.log(allCitiesData.stuttgart);
+  </script>
+  <!-- read the list of cities -->
+  <script>
+  
+  // cityListHtml is now available here
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1) Create a container or target element
+    const cityListContainer = document.getElementById("city-list-container");
+
+    // 2) Insert the HTML from cities-data.js
+    cityListContainer.innerHTML = cityListHtml;
+  });
+</script>
+  
+<script>
+
+// ========================= DOM REFERENCES =========================
+const citySelect   = document.getElementById("citySelect");
+const daySelect    = document.getElementById("daySelect");
+const prevDayBtn   = document.getElementById("prevDayBtn");
+const nextDayBtn   = document.getElementById("nextDayBtn");
+
+const selectedDayCell = document.getElementById("selectedDayCell");
+const sunriseCell      = document.getElementById("sunriseCell");
+const sunsetCell       = document.getElementById("sunsetCell");
+const fajrCell         = document.getElementById("fajrCell");
+const ishaaCell        = document.getElementById("ishaaCell");
+
+// ========================= UTILITY FUNCTIONS =========================
+function timeToMinutes(t) {
+  // "HH:MM" -> total minutes
+  const [hh, mm] = t.split(":").map(Number);
+  return hh * 60 + mm;
+}
+function minutesToTime(m) {
+  // total minutes -> "HH:MM" (24h)
+  const hh = Math.floor(m / 60);
+  const mm = m % 60;
+  // For simplicity, we won't handle negative or >24 wrap-around carefully.
+  return String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0");
+}
+
+function subtract1h05(timeStr) {
+  return minutesToTime(timeToMinutes(timeStr) - 65);
+}
+function add1h05(timeStr) {
+  return minutesToTime(timeToMinutes(timeStr) + 65);
+}
+
+// ========================= INIT CITY SELECT =========================
+// Populate the city <select> from allCitiesData keys
+const cityNames = Object.keys(allCitiesData); // e.g. ["ravensburg", "stuttgart", "munich"]
+cityNames.forEach(cityName => {
+  const opt = document.createElement("option");
+  opt.value = cityName;
+  opt.textContent = cityName; // Or a nicer label in Arabic
+  citySelect.appendChild(opt);
+});
+
+// ========================= INIT DAY SELECT =========================
+// For demonstration, let's assume up to 30 days (adjust if 31).
+for (let d = 1; d <= 30; d++) {
+  const opt = document.createElement("option");
+  opt.value = d;
+  opt.textContent = "يوم " + d;
+  daySelect.appendChild(opt);
+}
+
+// ========================= LOGIC: UPDATE THE TABLE =========================
+function updateTable() {
+  // Which city is selected?
+  const city = citySelect.value;
+  // Which day is selected?
+  const day = parseInt(daySelect.value, 10);
+
+  const cityData = allCitiesData[city];
+  if (!cityData) {
+    console.error("No data for city:", city);
+    return;
+  }
+
+  // Find the data object for the chosen day
+  // e.g. { day: 3, sunrise: "06:58", sunset: "18:09" }
+  const found = cityData.find(item => item.day === day);
+  if (!found) {
+    // Might happen if the city doesn't have data for that day
+    console.warn(`No data for day ${day} in city ${city}`);
+    return;
+  }
+
+  // Display day, sunrise, sunset
+  selectedDayCell.textContent = `يوم ${day} مارس 2025`; // or whatever format
+  sunriseCell.textContent     = found.sunrise;
+  sunsetCell.textContent      = found.sunset;
+
+  // Calculate fajr and ishaa
+  const fajr  = subtract1h05(found.sunrise);
+  const ishaa = add1h05(found.sunset);
+
+  fajrCell.textContent  = fajr;
+  ishaaCell.textContent = ishaa;
+
+  // Enable/disable day arrows if at boundaries
+  const minDay = 1;
+  const maxDay = 30; // or 31, depending on your data
+  prevDayBtn.disabled = (day <= minDay);
+  nextDayBtn.disabled = (day >= maxDay);
+}
+
+// ========================= ARROW HANDLERS =========================
+function goPrevDay() {
+  let d = parseInt(daySelect.value, 10);
+  if (d > 1) {
+    daySelect.value = (d - 1).toString();
+    updateTable();
+  }
+}
+function goNextDay() {
+  let d = parseInt(daySelect.value, 10);
+  if (d < 30) { // or 31
+    daySelect.value = (d + 1).toString();
+    updateTable();
+  }
+}
+
+// ========================= EVENT LISTENERS =========================
+citySelect.addEventListener("change", () => {
+  // When user changes city, let's reset day to 1 for simplicity
+  daySelect.value = "1";
+  updateTable();
+});
+daySelect.addEventListener("change", updateTable);
+prevDayBtn.addEventListener("click", goPrevDay);
+nextDayBtn.addEventListener("click", goNextDay);
+
+// ========================= INITIALIZE DEFAULT SELECTION =========================
+// Default city = first city in the list
+citySelect.value = cityNames[0];
+// Default day = 1
+daySelect.value = "1";
+updateTable();
+</script>
+
+</body>
+</html>
