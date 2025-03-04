@@ -1,0 +1,256 @@
+/* Define common styles */
+.common-background {
+    background-color: #ffffff;
+}
+.common-center-text {
+    text-align: center;
+}
+.common-padding {
+    padding: 20px;
+}
+.common-width-70 {
+    width: 70%;
+}
+.common-font-bold {
+    font-weight: bold;
+}
+.common-font-1rem {
+    font-size: 1rem;
+}
+
+/* Apply common styles */
+.outer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #f2f2f2; /* Light gray background for the page */
+}
+.inner-container {
+    display: flex;
+    width: 70%;
+}
+.side-column {
+    width: 8%;
+}
+.text-column {
+    width: 42%;
+    background-color: #ffffff;
+    text-align: right;
+    padding: 20px;
+}
+.list-column {
+    width: 42%;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+.column {
+    width: 42%;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    direction: rtl;
+    padding-right: 5px;
+}
+.container {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff; /* Light gray background for the page */
+    margin: 0 auto;
+}
+.link-container-w,
+.link-container-app {
+    margin: 0 10px; /* Add some margin between the images */
+}
+.link-container-w img {
+    width: 40px; /* Resize the image width */
+    height: auto; /* Maintain aspect ratio */
+}
+.link-container-app img {
+    width: 60px; /* Resize the image width */
+    height: auto; /* Maintain aspect ratio */
+}
+.spaced {
+    margin-top: 10px; /* Add space above the element */
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    border: 2px solid #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.modal-content {
+    font-size: 18px;
+    font-weight: bold;
+}
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+}
+.bold-text {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+.expl {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.center-container {
+    width: 100%; /* Full width for the entire container */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+#city-list-container {
+    width: 30%;  /* Set width to 30% of the page */
+    margin: auto; /* Center it horizontally */
+    text-align: center; /* Center the content inside */
+    font-size: 0.6rem;
+}
+#city-list-container2 {
+    width: 70%;  /* Set width to 30% of the page */
+    margin: auto; /* Center it horizontally */
+    text-align: center; /* Center the content inside */
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+body {
+    display: flex;
+    flex-direction: row; /* Default: two columns */
+    justify-content: center;
+    align-items: stretch; /* Ensure content is not clipped */
+    height: auto; /* Remove fixed height */
+    min-height: 100vh; /* Ensure full screen */
+    margin: 0;
+    direction: rtl;
+    font-family: Arial, sans-serif;
+    width: 100%;
+}
+h1 {
+    text-align: center;
+}
+.selectors {
+    text-align: center;
+    margin: 0px;
+}
+#prevDayBtn, #nextDayBtn {
+    display: none;
+}
+select, button {
+    font-size: 1rem;
+    margin: 0 5px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.center-container button {
+    height: 35px; /* Set the height of the button */
+    margin-top: 3px; /* Add margin at the top */
+    margin-bottom: 3px; /* Add margin at the bottom */
+}
+
+/* Table layout */
+table {
+    border-collapse: collapse;
+    margin: 5px auto; /* center horizontally */
+    width: 300px;
+    max-width: 100%; /* so it doesn't overflow on small screens */
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+    width: 120px;
+}
+.row-separator {
+    border-bottom: 2px solid red; /* example style */
+}
+.gr {
+    color: green;
+    font-weight: bold;
+}
+.centered {
+    text-align: center;
+}
+#tawkeet {
+    margin: auto; /* Center it horizontally */
+    text-align: center; /* Center the text */
+    font-size: 3.0rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+        margin: 10px;
+    }
+    .outer-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 10px;
+    }
+    .inner-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .side-column {
+        width: 0%;
+    }
+    select, button {
+        font-size: 0.9rem; /* slightly smaller text on small screens */
+    }
+    table {
+        width: 100%; /* use full width on mobile */
+    }
+    #city-list-container {
+        width: 100%; /* Full width on mobile */
+        color: blue;
+        font-size: 0.5rem;
+    }
+    #city-list-container2 {
+        width: 100%; /* Full width on mobile */
+        color: blue;
+        font-size: 0.8rem;
+    }
+    body {
+        flex-direction: column; /* Stack elements on mobile */
+        align-items: center;
+    }
+    .text-column {
+        width: 0%;
+    }
+    .column {
+        width: 70% !important; /* Ensure full width */
+        padding: 10px;
+        text-align: center;
+    }
+    .list-column {
+        width: 60%;
+        order: unset; /* Reset ordering for smaller screens */
+        padding: 10px;
+        text-align: center;
+    }
+    .expl {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+}
