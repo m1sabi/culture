@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MK-Photos app guide</title>
+<style>
+:root{color-scheme:light;--ink:#23374a;--muted:#516779;--blue:#000080;--line:#d6e4ee;--pale:#edf4fb}
+*{box-sizing:border-box}
+html{direction:ltr;scroll-behavior:smooth}
+body{margin:0;background:#f5f9fb;color:var(--ink);font:17px/1.85 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;text-align:left;direction:ltr}
+header{background:#e8f0fc;border-top:8px solid var(--blue);padding:24px 18px}
+main{max-width:850px;margin:auto;padding:18px 16px 42px}
+h1,h2,h3{line-height:1.55;margin:0 0 12px}h1{font-size:2rem}h2{color:#1b4382;font-size:1.4rem}h3{color:#335c8a;font-size:1.1rem;margin-top:20px}
+p{margin:8px 0 16px}nav{display:flex;flex-wrap:nowrap;gap:2px;margin:0 0 20px;direction:ltr;overflow-x:auto;max-width:100%;scrollbar-width:thin}
+nav a { min-height:64px; min-width:92px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; line-height:1.35; font-weight:600; background:#e5eefb;color:#213d7c;border:1px solid #c6d8f1;border-radius:12px;padding:4px 2px;text-decoration:none;white-space:normal;font-size:16px;flex:0 0 auto}
+nav a:focus-visible,a:focus-visible{outline:3px solid #5978dc;outline-offset:2px}
+section{background:#fff;border:1px solid var(--line);border-radius:14px;margin:12px 0;padding:18px;direction:ltr;text-align:left}
+ol{margin:8px 0 17px;padding-inline-start:26px;list-style-type:arabic-indic}
+li{padding-inline-start:4px;margin-bottom:9px}
+.hint{background:var(--pale);border-inline-start:4px solid #355a9d;padding:12px;border-radius:8px}
+code,bdi{unicode-bidi:isolate}bdi{direction:ltr}
+footer{color:var(--muted);padding:10px 4px;border-top:1px solid var(--line)}
+@media(max-width:500px){body{font-size:16px}main{padding-inline:12px}section{padding:15px}h1{font-size:1.7rem}}
+.exact-text{white-space:pre-wrap;overflow-wrap:anywhere}.doc-heading{font-size:1.4rem;font-weight:700;color:#1b4382}.doc-subheading{font-size:1.1rem;font-weight:700;color:#335c8a}
+</style>
+</head>
+<body dir="ltr">
+<header><h1><bdi dir="ltr">MK-Photos</bdi></h1>
+</header><main><p><a href="info-en.html" lang="en" dir="ltr">English</a> · <a href="info-ar.html" lang="ar" dir="rtl">عربي</a></p><nav aria-label="Guide sections">
+<a href="#getting-started"><span>Get</span><span>started</span></a>
+<a href="#upload"><span>Sync &amp;</span><span>pause</span></a>
+<a href="#gallery"><span>Photo</span><span>gallery</span></a>
+<a href="#albums"><span>Manage</span><span>albums</span></a>
+<a href="#share"><span>Share</span><span>files</span></a>
+<a href="#privacy"><span>Privacy &amp;</span><span>security</span></a>
+<a href="#settings"><span>App</span><span>settings</span></a>
+<a href="#help"><span>Help &amp;</span><span>solutions</span></a>
+</nav>
+<section><div id="document-text" class="exact-text"><span class="doc-heading" role="heading" aria-level="2" id="about">What is MK-Photos?</span>
+It is a home cloud application -H-Cloud- that provides privacy compared with applications that store your private files in a cloud whose controller is unknown .. such as Google, Microsoft, Amazon or others.
+The application was designed not to connect to the internet in the first place .. and therefore it does not share any data or identifiers, either for the device or for the accounts on it.
+
+It can also be used as a photo gallery, just like the default gallery -Studio- that comes with the device. It can also replace Google Photos and other programs that display the device&#x27;s photos or save and share them.
+Photos and videos can be shared through it with familiar applications such as WhatsApp, Facebook, Instagram, Gmail and others.
+
+The application needs a storage device at home that is connected to the home wireless Wi-Fi network but is not connected to the internet -the storage device&#x27;s internet connection must be blocked in the home router settings-. The application uploads -copies- all photo and video files on the mobile phone -or libraries selected by the user- from the phone to the home cloud -H-Cloud-.
+The storage device can be a laptop or a NAS (network-attached storage device). When the application is installed on the phone, it asks for the address of the storage device that has been set up.
+
+The advantage of a NAS is that it can contain several storage drives -HDD, SSD-, so that if one fails over time, the failed drive is replaced and the files remain safe.
+
+The application can store files uploaded from up to 100 phones within the home -meaning it is enough for any family-. The phone&#x27;s connection to the storage device is protected by passwords that meet the application&#x27;s requirements.
+Each phone has its own libraries on the cloud -H-Cloud-, and can share whichever files it wants with the other people/devices.
+
+Using storage and sync requires an email account -only for identification-. Again, this has nothing to do with connecting to the internet: the application identifies the device using the supplied email address, which serves only as an -ID- for that device.
+
+MK-Photos sends selected photos and videos directly from your Android phone to a private home SMB shared folder on your home computer or network storage device (H-Cloud). There is no need to use a Windows upload script or a web browser on the computer.
+
+Each phone saves its backups in its own folder, and the application organizes them by source and capture date, without displaying the backup location in the gallery.
+
+The date-organized gallery displays this phone&#x27;s photos and videos that MK-Photos has recorded as uploaded. The application reads local copies to display thumbnails and previews, so returning to the gallery does not rescan the shared folder. A shared album link can display photos selected by another phone in the home. Albums organize references to these files; they do not rearrange the original files on your phone or move them within the shared folder.
+
+
+The Shared button appears at the bottom of the screen. After a shared album is opened once using its code, it is saved on this phone and can be reopened using this button. The album owner can edit their album and publish the update or remove the shared album listing from other phones, while access to the original files remains available to anyone with SMB permissions. The recipient can remove only the album shortcut from their own phone. Stopping sharing does not delete the original photos. If a shared video&#x27;s path changes, the application searches for a unique filename in the original phone&#x27;s folder; if it does not find it, ask the album owner to update the share. After selecting a file, the More menu includes bookmarks, printing through another application, Open with, Properties and app information. Changes made by other applications to temporary copies do not automatically overwrite the original.
+
+Enter the authorized email address as an identifier, followed by the code provided by the share owner. The application verifies the registry, and does not send email or connect to the internet. If you select photos and then choose Add to album when no album exists yet, it offers to create a new album and add the photos to it. Settings remains open after automatic sync is enabled. Actions for selected items appear under More at the bottom of the screen, while Select all remains alone in the selection bar.
+
+
+<span class="doc-heading" role="heading" aria-level="2" id="getting-started">Getting started on a new phone</span>
+
+    Connect to your home Wi-Fi network. Enter the server details, shared folder (share), SMB account and SMB account password supplied by the owner. Assign a unique name to this phone&#x27;s folder.
+    Enter your approved email address and assigned activation code once. Note that the SMB password and activation code are different; the code is required when activating a new installation of the application, and is not requested every time you open it.
+    A floating setup guide appears after activation and moves through Connection, Permissions and sync, Notifications, and Language. You can edit fields and press buttons while it is visible. Grant full access to photos, choose the photo sources, then start uploading and enable automatic sync. Press Next to continue or Show again to close it; you can reopen it from Settings → Language.
+
+You can later switch to selected folders instead of choosing all device photos. If you choose selected folders, add at least one folder and enable its cloud switch.
+<span class="doc-heading" role="heading" aria-level="2" id="upload">Choose what you want to sync and upload</span>
+<span class="doc-subheading" role="heading" aria-level="3">All device photos and videos</span>
+
+In Settings → Photo sources, choose &quot;All device photos and videos&quot; and grant full media access. Use the &quot;Show device folders and cloud&quot; options to enable or disable uploading for specific device folders; changes take effect during the next sync.
+<span class="doc-subheading" role="heading" aria-level="3">Selected folders and subfolders</span>
+
+You do not have to upload every photo on your phone. You can choose selected folders and subfolders in Settings to upload only the folders you select. From the home screen, open Tools (⋮) and choose Add photo folder to select one or more folders, or press Folders at the top to open a dedicated folder navigation screen.
+
+Device folders and cloud sync switches are shown in All-device mode, or the switches for the folders you selected are shown in Selected folders mode. You can enable or disable each folder. When a folder is enabled, its subfolders are automatically included. A folder whose cloud sync is disabled is not selected for sync. Using Tools (⋮) → Clear selected folders removes the list of selected upload folders and their cloud sync switches, without affecting All-device mode or deleting photos already in the shared location.
+<span class="doc-subheading" role="heading" aria-level="3">Start, pause, and resume</span>
+
+Sync means that MK-Photos checks the enabled photo sources for new files and uploads them to the share. Tap Start/resume upload in Settings to perform a manual check. There is no fixed file-count limit; uploads continue until the selected files have been processed or the home share runs out of space. Completed items are skipped without rereading their photo metadata. Scheduled checks wait until the battery is no longer low, and manual sync remains available. For ongoing checks, choose an interval, then tap Save sync interval and Enable/update automatic sync. Use Disable automatic sync if you want to stop scheduled checks.
+
+Tap Tools (⋮) → Pause upload from the home screen to stop a transfer that is currently running, including the current file. Previously uploaded files remain on the shared folder. An incomplete temporary upload is deleted when the shared folder is reachable; if a connection cannot be made during cleanup, a temporary .part file may remain. Tap Start/resume upload when you are finished. Pausing does not disable future automatic checks; also choose Disable automatic sync if you do not want another scheduled upload.
+
+MK-Photos uploads files over Wi-Fi by default. Mobile data is allowed only if its option is enabled in Settings and the phone is connected to a home VPN. The computer or network storage device (H-Cloud) hosting the home share must be running. Android may delay background checks: an interval of 5 to 14 minutes runs only while the Settings sync screen remains open, while background intervals start at about 15 minutes.
+<span class="doc-heading" role="heading" aria-level="2" id="gallery">Browse your photos and videos</span>
+
+The home screen displays completed uploads from this phone grouped by day; each date heading is followed by its photo and video thumbnails. Thumbnails and full-screen items load from the originals on the phone, so returning to the gallery does not rescan the network storage device (H-Cloud). At the top, there are two rows, each containing four icons: Home, Folders, Browse, Tools (⋮), Photos, Videos, Rename, and Delete. Press Photos or Videos to filter, and press the same icon again to display both types. Tools offers options including displaying all photos and videos, bookmarks, adding a photo folder, clearing selected folders, pausing uploads, and refreshing the uploaded file list. Videos appear as soon as their uploads finish, and the gallery indicates how many videos are currently displayed.
+
+Tap a thumbnail to open it full-screen. Swipe left or right to move to the next or previous photo, or use the on-screen buttons. Use two fingers to zoom in, drag to inspect the enlarged photo, and double-tap to zoom or return to the original view. Press Back to return. Videos already on the phone play from their locally stored original files, while media in a shared album downloads from the network storage device (H-Cloud). Use the playback controls available in the viewer. The phone&#x27;s Back button takes you to the previous screen; when leaving the main gallery, it asks you to confirm before closing.
+
+Long-press a thumbnail to select it, and tap other photos to select more. The selection bar displays a count (such as 1/35 selected) and Select all. To view items added to favorites, tap Tools (⋮), then Favorites; the application displays the number of favorite items and clears the other gallery filters so you can see those items. More (⋮) includes sharing selected files through apps (sending copies to the chosen Android application), adding to favorites, adding to the Home screen (one selected item; launcher approval may be required), and Properties (one item: filename, type, phone model, date, local size and dimensions when available, and original phone path, without the backup location). The More menu in the viewer provides actions for the open item. Use the top Rename icon when one item is selected, or Delete when one or more items are selected; Android asks you to confirm deletion of the phone originals. The option to delete backup copies as well is unchecked by default and starts only after deletion of the phone files is confirmed. If a selected folder is read-only, delete the original through the Files app.
+
+Browse opens a date picker that lets you scroll through years, months and days. Choose Show month to view all dates in that month, or Show day to display that specific date. A gallery organized by date opens with actual thumbnails instead of file paths. Pinch with two fingers on the thumbnail grid to change the display size as your fingers move; when you lift them, the view settles at the nearest number of columns, and your layout is saved on this phone.
+<span class="doc-heading" role="heading" aria-level="2" id="albums">Create and manage albums</span>
+
+    Press Albums in the bottom bar, then Album actions → Create album and give it a name. The controls stay compact so that the photo grid remains visible.
+    Return to the gallery. Long-press a photo or video to start selecting; then tap more thumbnails to choose a group.
+    Press Add to album and choose an album. To view an album, go to Albums and choose it from the list.
+
+When browsing a local album, long-press an item and then select other items. Move to another album adds these items to a new album and removes them from the current album, while Remove from album removes them only from this album. Delete selected album deletes the album record itself, without deleting the original photos or videos; the original files remain in their folders on the H-Cloud device, and deleting the album does not delete files from the phone.
+
+Albums you create are saved on this phone unless you explicitly share the album link.
+<span class="doc-heading" role="heading" aria-level="2" id="share">Share photos or an album</span>
+<span class="doc-subheading" role="heading" aria-level="3">Share selected files with another application</span>
+
+Long-press a thumbnail, select the other photos or videos you want, then tap Share files through apps. MK-Photos prepares actual copies of the selected files (usually from the phone itself) and opens Android&#x27;s sharing menu. When Gmail is chosen, the files are passed to it as attachments, and the subsequent upload follows Gmail&#x27;s own behavior; this is different from sharing an album link.
+<span class="doc-subheading" role="heading" aria-level="3">Share an album with family members&#x27; phones</span>
+
+    Open Albums and choose a local album containing the items you want.
+    Press Share/Update selected album link and send the suggested link (mkph://album/…).
+    On another activated phone connected to the home Wi-Fi network, open the link using MK-Photos. That phone must have access to the same shared SMB folder.
+
+If you change the album later, press Share/Update selected album link again so that the updated member list appears on the other phones. The link opens in MK-Photos; it is not a public photo gallery on the web. Some messaging or email applications may not support clicking the custom link.
+
+Gmail may display the mkph://album address as non-clickable text. The album code and app address each appear on their own line. On the receiving phone, open MK-Photos, then Albums → Open shared album by code, and paste the code while connected to the home network. If the address is clickable, it opens the application and asks whether to accept the album.
+<span class="doc-heading" role="heading" aria-level="2" id="privacy">Privacy and local network security</span>
+
+MK-Photos connects directly to an SMB file share over the home Wi-Fi network. In the home setup, the server address is within the private local network; MK-Photos does not provide a public website or a photo gallery accessible over the internet. Its built-in photo upload and viewing functions do not send your photos to a cloud service or third-party server.
+
+Photos on the H-Cloud device can be accessed only by people or devices that can reach the shared folder and have an SMB account authorized to do so. Ensuring that the photos cannot be accessed over the public internet also depends on the router and H-Cloud settings; therefore, avoid forwarding SMB port 445 to the internet or enabling internet access to the shared folder.
+
+MK-Photos uses Wi-Fi for uploads by default. You can enable uploading through mobile data in Settings only when connected to a VPN to your home; the local server address does not work over ordinary mobile data. Do not expose SMB port 445 to the internet. If Wi-Fi disconnects without the VPN and the above option enabled, uploading stops. When sharing photos with another application such as Gmail, sending them is subject to that application&#x27;s policies.
+<span class="doc-heading" role="heading" aria-level="2" id="settings">Settings and this information page</span>
+
+Press Settings at the bottom of the gallery to change sources, the upload schedule, notifications, the share connection, or this phone&#x27;s folder name. Enable Notify me when new photos are uploaded if you want a notification when uploading finishes. Change SMB password is used when the Windows or H-Cloud account password changes; it does not change the activation code.
+
+An exported encrypted profile can transfer home server and sync settings to another phone. Import the file there, then enter that phone&#x27;s SMB password, unique folder name and activation code. The exported profile does not include the SMB password or the current phone&#x27;s folder permissions.
+
+Press More → About app at the bottom of the gallery to open this guide, or More → App version to see the installed version. The application keeps a copy that can be read offline. The public version does not display the home server address or the backup storage location.
+
+The button for granting access to photos remains green after permission is granted. Allow uploading using mobile data permits uploading only through the home VPN, and is disabled by default. Tools → All photos and videos displays all media from this phone after clearing the album filter. Forget selected upload folders removes the folder list from the application without deleting any photo from the phone or storage device.
+<span class="doc-heading" role="heading" aria-level="2" id="help">If something is not working</span>
+
+If no files are uploading: check the home Wi-Fi network, whether the share host is running, the SMB account password, Android photo access permissions, the selected source and its cloud switch. Start a manual upload to check the status.
+
+· No items in the gallery: connect to your home Wi-Fi network and press Refresh. Make sure files from this phone have finished uploading and the connection to the shared content is working.
+
+· The album link does not open: open the link on a phone where MK-Photos is activated and that has access to the same shared folder. Try copying the complete link if the email application does not make it clickable.
+
+· Automatic checks are delayed: Android controls the timing of background operations. Make sure automatic sync is enabled and review your phone&#x27;s battery settings.
+MK-Photos guide · English · Arabic
+</div></section>
+</main></body></html>
